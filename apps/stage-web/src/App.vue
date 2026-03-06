@@ -122,7 +122,6 @@ function handleSetupSkipped() {
     <Toaster />
   </ToasterRoot>
 
-  <!-- First Time Setup Dialog -->
   <OnboardingDialog
     v-model="shouldShowSetup"
     @configured="handleSetupConfigured"
@@ -130,6 +129,11 @@ function handleSetupSkipped() {
   />
 
   <PerformanceOverlay />
+
+  <div class="noon-promo-badge">
+    <div class="label">كود خصم نون 🎁</div>
+    <div class="code">MSHL1</div>
+  </div>
 </template>
 
 <style>
@@ -151,5 +155,42 @@ function handleSetupSkipped() {
 
 .dynamic-hue {
   animation: hue-anim 10s linear infinite;
+}
+
+/* ✅ تـنسيـق مـربـع الـخـصـم */
+.noon-promo-badge {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #000;
+  padding: 10px 25px;
+  border-radius: 15px;
+  font-weight: 900;
+  z-index: 100000;
+  border: 4px solid #fff;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  font-family: 'Arial Black', sans-serif;
+  animation: pulse-gold 1.5s infinite ease-in-out;
+}
+
+.noon-promo-badge .label {
+  font-size: 14px;
+  margin-bottom: 2px;
+  color: #333;
+}
+
+.noon-promo-badge .code {
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+}
+
+@keyframes pulse-gold {
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.08); filter: brightness(1.2); box-shadow: 0 15px 40px rgba(255,215,0,0.6); }
+  100% { transform: scale(1); filter: brightness(1); }
 }
 </style>
